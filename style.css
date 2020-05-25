@@ -1,0 +1,111 @@
+/* ---------- FONTS BEGIN ---------- */
+
+@font-face {
+    font-family: "MinecraftiaRegular";
+    src: url("./MinecraftiaRegular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ---------- FONTS END ---------- */
+
+.error {
+    /* transform: translateY(50vh); */
+    text-align: center;
+    font-family: MinecraftiaRegular;
+    font-weight: normal;
+    font-size: 2em;
+    color: white;
+    font-style: normal;
+}
+
+.command {
+    /* transform: translateY(50vh); */
+    text-align: center;
+    font-family: MinecraftiaRegular;
+    font-weight: normal;
+    font-size: 1em;
+    color: white;
+    font-style: normal;
+}
+
+.title {
+    /* transform: translateY(50vh); */
+    text-align: center;
+    font-family: MinecraftiaRegular;
+    font-weight: normal;
+    font-size: 3em;
+    color: white;
+    font-style: normal;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0rem;
+}
+
+.subtitle {
+    /* transform: translateY(50vh); */
+    text-align: center;
+    font-family: MinecraftiaRegular;
+    font-weight: normal;
+    font-size: 2em;
+    color: white;
+    font-style: normal;
+    position: fixed;
+    top: 3em;
+    left: 0;
+    width: 100%;
+    padding: 0rem;
+}
+
+body {
+    font-weight: normal;
+    font-style: normal;
+    margin: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("https://static.planetminecraft.com/files/resource_media/screenshot/1236/pack_3530346.jpg");
+    background-size: 5em;
+}
+
+input {
+    font-family: MinecraftiaRegular;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.inp {
+    font-size: 2em;
+    width: 10em;
+    height: 2em;
+    outline: #A0A0A0;
+    padding: 0.2em;
+    color: white;
+    background: #000000;
+}
+
+.btn {
+    font-size: 2em;
+    outline: none;
+    color: white;
+    border: none;
+    background-color: #6F6F6F;
+    width: 10em;
+    height: 2em;
+    padding: 0.2em;
+    cursor: pointer;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    box-shadow: inset black 0px 0px 0px 2px, inset white 4px 4px, inset #555555 -3px -3px;
+}
+
+.btn:hover {
+    background-color: #877CB0;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
