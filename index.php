@@ -1,3 +1,18 @@
+<head>
+    <title>Head to Tellraw 1.16+</title>
+    <link rel="icon" href="https://crafatar.com/avatars/8e437b09425747dba1ef50f5eeef7cfa?size=250&overlay">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161888894-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161888894-2');
+    </script>
+</head>
+    
 <link rel="stylesheet" href="style.css">
 
 <?php
@@ -11,7 +26,7 @@ if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
 
 ?>
 
-<p class="title">Head to tellraw 1.16+</p>
+<p class="title">Head to Tellraw 1.16+</p>
 <p class="subtitle">by TMShader</p>
 
 <div class="middle">
