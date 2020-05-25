@@ -11,7 +11,7 @@ if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
 
 ?>
 
-<p class="title">Head generator 1.16+</p>
+<p class="title">Head to tellraw 1.16+</p>
 <p class="subtitle">by TMShader</p>
 
 <div class="middle">
