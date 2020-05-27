@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://crafatar.com/avatars/8e437b09425747dba1ef50f5eeef7cfa?size=250&overlay0">
+<title>Head to tellraw 1.16+ by TMShader</title>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function copy(text) {
