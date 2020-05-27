@@ -19,7 +19,7 @@ if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
     $command = escapeshellcmd('python ./getTellraw.py ' . $_REQUEST['name']);
     $output = shell_exec($command);
     print_r('<p class="command">Command copied to clipboard!</p>');
-    print_r('<script type="text/javascript">setTimeout(function(){copy("' . $output . '")}, 5000);</script>');
+    print_r("<script type='text/javascript'>setTimeout(function(){copy('" . $output . "')}, 5000);</script>");
     return;
 }
 
