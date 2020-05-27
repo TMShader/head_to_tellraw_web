@@ -57,8 +57,6 @@ def generate(uname):
 
     head_img.close()
 
-    clipboard.copy(full)
-
     return full
 
 
