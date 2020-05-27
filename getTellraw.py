@@ -4,26 +4,37 @@ import requests
 from PIL import Image
 import sys
 import json
+from io import BytesIO
 
 
 def generate(uname):
-    with open('head.png', 'wb') as handle:
-        uuid_raw = json.loads(requests.get(
-            "https://api.mojang.com/users/profiles/minecraft/" + uname).text)
-        uuid = uuid_raw["id"]
-        response = requests.get(
-            "https://crafatar.com/avatars/" + uuid + "?size=80&overlay")
+    #     with open('head.png', 'wb') as handle:
+    #         uuid_raw = json.loads(requests.get(
+    #             "https://api.mojang.com/users/profiles/minecraft/" + uname).text)
+    #         uuid = uuid_raw["id"]
+    #         response = requests.get(
+    #             "https://crafatar.com/avatars/" + uuid + "?size=80&overlay")
+    #
+    #         if not response.ok:
+    #             print(response)
+    #
+    #         for block in response.iter_content(1024):
+    #             if not block:
+    #                 break
+    #             handle.write(block)
 
-        if not response.ok:
-            print(response)
+    uuid_raw = json.loads(requests.get(
+        "https://api.mojang.com/users/profiles/minecraft/" + uname).text)
+    uuid = uuid_raw["id"]
+    response = requests.get(
+        "https://crafatar.com/avatars/" + uuid + "?size=80&overlay")
 
-        for block in response.iter_content(1024):
-            if not block:
-                break
-            handle.write(block)
+    head_img = Image.open(BytesIO(response.content))
+    head_img.show()
+    head = head_img.load()
 
-    head = Image.open('head.png')
-    head = head.load()
+#     head = Image.open('head.png')
+#     head = head.load()
 
     command = '/give @p minecraft:command_block{display:{Name:"{\\"text\\":\\"' + uname + \
         '\\",\\"italic\\":false}]"}, BlockEntityTag: {CustomName: "{\\"text\\": \\"' + \
@@ -43,6 +54,8 @@ def generate(uname):
                 # full = full + ',{\\"text\\":\\" \\n \\"}'
 
     full = full + ']"}}'
+
+    head_img.close()
 
     return full
 
