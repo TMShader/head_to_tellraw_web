@@ -36,9 +36,9 @@ def generate(uname):
 #     head = Image.open('head.png')
 #     head = head.load()
 
-    command = '/give @p minecraft:command_block{display:{Name:"{\\"text\\":\\"' + uname + \
-        '\\",\\"italic\\":false}]"}, BlockEntityTag: {CustomName: "{\\"text\\": \\"' + \
-        uname + '\\"}", Command: "tellraw @a [\\" \\"'
+    command = 'give @p minecraft:command_block{display:{Name:\\"{\\"text\\":\\"' + uname + \
+        '\\",\\"italic\\":false}]\\"}, BlockEntityTag: {CustomName: \\"{\\"text\\": \\"' + \
+        uname + '\\"}\\", Command: \\"tellraw @a [\\" \\"'
 
     full = command
     for y in range(0, 8):
@@ -53,7 +53,7 @@ def generate(uname):
                 # print('#%02x%02x%02x' % image[x * 10, y * 10])
                 # full = full + ',{\\"text\\":\\" \\n \\"}'
 
-    full = full + ']"}}'
+    full = full + ']\\"}}'
 
     head_img.close()
 

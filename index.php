@@ -2,9 +2,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function copy(text) {
-        var dummy = $('<input>').val(text).appendTo('body').select()
-        document.execCommand('copy')
-        // dummy.remove()
+        $('<p class="command">Here you go:</p>').appendTo(".middle")
+        $('<input>').val(text).appendTo('.middle').attr("style", "font-size: 2em; width: 21em;").select()
+        $('<p class="command">Just press Ctrl+C ;)</p>').appendTo(".middle")
     }
 </script>
 
@@ -16,10 +16,9 @@
 <?php
 
 if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
-    $command = escapeshellcmd('python ./getTellraw.py ' . $_REQUEST['name']);
+    $command = escapeshellcmd('py ./getTellraw.py ' . $_REQUEST['name']);
     $output = shell_exec($command);
-    print_r('<p class="command">Command copied to clipboard!</p>');
-    print_r("<script type='text/javascript'>setTimeout(function(){copy('" . $output . "')}, 5000);</script>");
+    print_r('<script type="text/javascript">setTimeout(() => { copy("' . substr($output, 0, -1) . '")}, 1000);</script>');
     return;
 }
 
@@ -41,9 +40,19 @@ if (isset($_REQUEST['name']) and empty($_REQUEST['name']) == false) {
 ?>
 
     <form method="post" style="margin-top: 1em;">
-        <input type="text" oninput="$('input[name=\'get_command\']').remove()" class="inp" name="name" value="<?php if (isset($json_string)) { print_r($json_string['name']); } ?>">
+        <input type="text" oninput="$('input[name=\'get_command\']').attr('hidden', true); $('input[name=\'get_player\']').removeAttr('hidden');" class="inp" name="name" value="<?php if (isset($json_string)) { print_r($json_string['name']); } ?>">
         <!-- <input hidden type="text" class="inp" name="uname" value="<?php if (isset($json_string)) { print_r($json_string['name']); } ?>"> -->
-        <?php if (empty($json) == false) { print_r('<input type="submit" class="btn" name="get_command" value="Get Command">'); } ?>
-        <input type="submit" class="btn" name="get_player" value="Get Player">
+        <?php 
+            if (empty($json) == false) {
+                print_r('<input type="submit" class="btn" name="get_command" value="Get Command">');
+                print_r('<input type="submit" class="btn" name="get_player" value="Get Player" hidden>');
+            }
+        ?>
+        <?php 
+            if (empty($json) == true) {
+                print_r('<input type="submit" class="btn" name="get_player" value="Get Player">');
+                print_r('<input type="submit" class="btn" name="get_command" value="Get Command" hidden>');
+            }
+        ?>
     </form>
 </div>
