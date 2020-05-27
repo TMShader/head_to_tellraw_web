@@ -5,7 +5,6 @@ from PIL import Image
 import sys
 import json
 from io import BytesIO
-import clipboard
 
 
 def generate(uname):
