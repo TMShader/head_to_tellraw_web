@@ -18,7 +18,7 @@
 <?php
 
 if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
-    $command = escapeshellcmd('py ./getTellraw.py ' . $_REQUEST['name']);
+    $command = escapeshellcmd('python ./getTellraw.py ' . $_REQUEST['name']);
     $output = shell_exec($command);
     print_r('<p class="command">' . $output . '</p>');
     return;
