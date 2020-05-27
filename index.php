@@ -1,37 +1,29 @@
-<head>
-    <title>Head to Tellraw 1.16+</title>
-    <link rel="icon" href="https://crafatar.com/avatars/8e437b09425747dba1ef50f5eeef7cfa?size=250&overlay">
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161888894-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-161888894-2');
-    </script>
-</head>
-    
 <link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function copy(text) {
+        var dummy = $('<input>').val(text).appendTo('body').select()
+        document.execCommand('copy')
+        // dummy.remove()
+    }
+</script>
 
-<?php
-
-if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
-    $command = escapeshellcmd('python ./getTellraw.py ' . $_REQUEST['name']);
-    $output = shell_exec($command);
-    print_r('<p class="command">' . $output . '</p>');
-    return;
-}
-
-?>
-
-<p class="title">Head to Tellraw 1.16+</p>
+<p class="title">Head to tellraw 1.16+</p>
 <p class="subtitle">by TMShader</p>
 
 <div class="middle">
 
 <?php
+
+if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
+    $command = escapeshellcmd('py ./getTellraw.py ' . $_REQUEST['name']);
+    $output = shell_exec($command);
+    print_r('<p class="command">Command copied to clipboard!</p>');
+    print_r('<script type="text/javascript">copy("' . $output . '");</script>');
+    return;
+}
+
+
 
 if (isset($_REQUEST['name']) and empty($_REQUEST['name']) == false) {
     $name = $_REQUEST['name'];
@@ -49,7 +41,7 @@ if (isset($_REQUEST['name']) and empty($_REQUEST['name']) == false) {
 ?>
 
     <form method="post" style="margin-top: 1em;">
-        <input type="text" class="inp" name="name" value="<?php if (isset($json_string)) { print_r($json_string['name']); } ?>">
+        <input type="text" oninput="$('input[name=\'get_command\']').remove()" class="inp" name="name" value="<?php if (isset($json_string)) { print_r($json_string['name']); } ?>">
         <!-- <input hidden type="text" class="inp" name="uname" value="<?php if (isset($json_string)) { print_r($json_string['name']); } ?>"> -->
         <?php if (empty($json) == false) { print_r('<input type="submit" class="btn" name="get_command" value="Get Command">'); } ?>
         <input type="submit" class="btn" name="get_player" value="Get Player">
