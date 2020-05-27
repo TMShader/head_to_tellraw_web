@@ -30,7 +30,7 @@ def generate(uname):
         "https://crafatar.com/avatars/" + uuid + "?size=80&overlay")
 
     head_img = Image.open(BytesIO(response.content))
-    head_img.show()
+#     head_img.show()
     head = head_img.load()
 
 #     head = Image.open('head.png')
