@@ -14,10 +14,6 @@
 <p class="title">Head to tellraw</p>
 <p class="subtitle">by TMShader</p>
 
-<?php
-    print_r($_REQUEST);
-?>
-
 <div class="middle">
 
 <?php
@@ -42,7 +38,6 @@ if (isset($_REQUEST['get_command']) and empty($_REQUEST['name']) == false) {
     }
     
     $output = shell_exec($command);
-    print_r($_REQUEST);
     print_r("<script type='text/javascript'>setTimeout(() => { copy('" . substr($output, 0, -1) . "')}, 1000);</script>");
     return;
     
