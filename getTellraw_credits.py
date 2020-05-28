@@ -49,8 +49,17 @@ def generate(uname):
 #            if x == 7 and y != 7:
 #                full = full + \
 #                    ',{"text":"\\u2588\\n","color":"' + color + '"}'
-            if x == 7 and y != 7:
-                full = full + ',{"text":"\\u2588","color":"' + color + '"},{"text":"\\\\n"}'
+            if x == 7 and y == 3:
+                full = full + \
+                    ',{"text":"\\u2588","color":"' + \
+                    color + '"},{"text":"          Made by\\\\n"}'
+            elif x == 7 and y == 4:
+                full = full + \
+                    ',{"text":"\\u2588","color":"' + color + \
+                    '"},{"text":"          ' + uname + '\\\\n"}'
+            elif x == 7 and y != 7 and y != 3 and y != 4:
+                full = full + ',{"text":"\\u2588","color":"' + \
+                    color + '"},{"text":"\\\\n"}'
             else:
                 full = full + \
                     ',{"text":"\\u2588","color":"' + color + '"}'
