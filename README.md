@@ -3,7 +3,7 @@ Make your head visible in the chat on your map!
 
 Simply put your name in the application and put the command you got into a command block and run it!
 
-[__Click here to open the website!__](https://github.com/TMShader/head_to_tellraw/releases/latest)
+[__Click here to open the website!__](https://head-generator.tmshader.me/)
 
 ---
 Gallery:
